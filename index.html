@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Create a phone background from any Keeper NFT">
+  <meta name="author" content="Wakingtheechoes">
+  <title>FOCUS ART</title>
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <meta name="theme-color" content="#ffffff">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+  <!-- Custom styles for this template -->
+  <link href="kpr.css" rel="stylesheet">
+  <!-- <link href="slider.css" rel="stylesheet"> -->
+</head>
+
+<body class="d-flex h-100 text-center text-white" style="background-color: #000000;">
+
+  <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <main class="px-3">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 my-auto">
+
+          <div class="container mb-3">
+            <img src="https://kprverse.com/_nuxt/footer_kpr.034b6b12.svg?inline" width="100%">
+          </div>
+          <!-- <p class="lead">Day or Night, the rebellion keeps marching on.</p> -->
+          <div class="container-fluid px-0">
+
+            <form>
+
+              <div class="input-group mb-3">
+                <input type="number" placeholder="Enter a KPR Token ID" class="form-control text-center" id="kpr-id"
+                  onkeypress="keypress(event)" />
+                <button class="btn btn-dark" type="button" id="button-addon2"
+                  onclick='window.open(`/?id=${document.getElementById("kpr-id").value}`,"_self")'>FOCUS ART</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+
+          <p class="lead">
+          <div class="row">
+            <!-- <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white"> -->
+            <div class="col-md-12 mb-4"><img id="kpr-image" src="" width="75%" /></div>
+          </div>
+          <!-- </a> -->
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="mt-auto">
+      <p style="color:#222222;text-shadow: none;">sincerely, wakingtheechoes.eth</p>
+    </footer>
+  </div>
+
+
+
+</body>
+<script type="text/javascript">
+  function keypress(e) {
+    if (e.keyCode === 13) {
+      e.preventDefault(); // Ensure it is only this code that runs
+
+      window.open(`/?id=${document.getElementById("kpr-id").value}`, "_self")
+    }
+  }
+
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+  });
+
+  // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+  let value = params.id; // "some_value"
+
+  kpr_id = value ? value : 1234;
+  document.getElementById('kpr-image').setAttribute('src', `https://api.thedripbot.com/dripbot/kpr/${kpr_id}`)
+</script>
+
+<!-- Google tag (gtag.js) -->
+<!-- Gotta try to catch at least a small amount of analytics :shrug: -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NNHG060FDB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-NNHG060FDB');
+</script>
+
+</html>
+
+<!-- 
+Alone, the rebellion starts.
+Others join the wave.
+So their future is better.
+-->
